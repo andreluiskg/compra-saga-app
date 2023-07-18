@@ -40,7 +40,8 @@ public class CompraOrquestradaResource {
 					+ creditoService.getCreditoTotal());
 		} catch (IllegalStateException e) {
 			pedidoService.cancelPedido(id);
-			System.err.println("Pedido " + id + " estornado no valor de " + valor);
+			System.err.println("Pedido " + id + " estornado no valor de " + valor + ". Saldo disponível: "
+					+ creditoService.getCreditoTotal());
 		}
 	}
 

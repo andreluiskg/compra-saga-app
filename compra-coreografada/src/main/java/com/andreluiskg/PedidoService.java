@@ -23,7 +23,8 @@ public class PedidoService {
 					+ creditoService.getCreditoTotal());
 		} catch (IllegalStateException e) {
 			cancelPedido(id);
-			System.err.println("Pedido " + id + " estornado no valor de " + valor);
+			System.err.println("Pedido " + id + " estornado no valor de " + valor + ". Saldo disponível: "
+					+ creditoService.getCreditoTotal());
 		}
 
 	}

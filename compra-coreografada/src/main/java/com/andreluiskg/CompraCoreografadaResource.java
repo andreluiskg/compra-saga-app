@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("compra-coreografada")
-public class CompraOrquestradaResource {
+public class CompraCoreografadaResource {
 
 	@Inject
 	PedidoService pedidoService;

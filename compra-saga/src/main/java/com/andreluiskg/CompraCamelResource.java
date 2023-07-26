@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import org.apache.camel.CamelContext;
 
 @Path("compra-camel")
-public class CompraCamelResource {
+public class CompraCamelResource { // orquestrador
 
 	@Inject
 	CamelContext context;
@@ -27,10 +27,11 @@ public class CompraCamelResource {
 		comprar(++id, 30);
 		comprar(++id, 25);
 
-		return Response.ok().build();
+		return Response.ok("").build();
 
 	}
 
+	@Produces(MediaType.TEXT_PLAIN)
 	private void comprar(Long id, int valor) {
 
 		try {
@@ -41,8 +42,6 @@ public class CompraCamelResource {
 					.withHeader("valor", valor) //
 					.request();
 		} catch (Exception e) {
-//			throw new RuntimeException(e.getMessage());
-//			throw new RuntimeException(e.getMessage("Entrou na Exception de CompraCamelResource.comprar(Long id, int valor)"));
 			throw new RuntimeException("Entrou na Exception de CompraCamelResource.comprar(Long id, int valor)");
 		}
 
